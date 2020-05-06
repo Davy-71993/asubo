@@ -7,13 +7,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUBO {% if title %}: {{ title }} {% endif %}</title>
+    <title>ASUBO {% if title %}| {{ title }} {% endif %}</title>
+    <link rel="icon" type="image/png" href="{% static 'icons/reading.png' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
     <style>
       body{
         min-height: 100vh;
+      }
+      .nav-logo{
+          background-image:image("{% static 'icons/reading.png' %}");
+          padding: 10px;
       }
       .jumbotron {
         background: #532f8c;
@@ -73,7 +78,7 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand text-info" href="{% url 'index' %}"><h2 style="margin-top: 0; padding-top: 0;">MYSCHOOL</h2></a>
+            <a class="navbar-brand text-info" href="{% url 'index' %}"><h2 style="margin-top: 0; padding-top: 0;"><span class="nav-logo"></span> ASUBO</h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
