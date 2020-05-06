@@ -1,0 +1,73 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        a.btn{
+            max-width: 200px;
+        }
+        .day{
+            width: 100px;
+            font-weight: bolder;
+            font-size: 18px;
+            padding: 0 10px;
+        }
+        .table{
+            text-align: center;
+            table-layout: fixed;
+            overflow: hidden;
+        }
+        .day-cell{
+            padding-left: 0;
+            overflow: hidden;
+        }
+        .ents{
+            min-height: 30px;
+        }
+        .ebtn{
+            text-align: center;
+            padding: 15px;
+            margin: 0;
+            background-color: rosybrown;
+            border: none;
+            clip-path: circle();
+        }
+        .month{
+            background-color: rgb(145, 163, 196);
+        }
+        .stretch-2{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .stretch-2 .btn2{
+            justify-self: right;
+            clear: both;
+        }
+        .stretch-2 .btn1{
+            justify-self: left;
+        } 
+        .fit-nav{
+            width:fit-content; 
+            margin: 10px auto; 
+            background-color: khaki; 
+            padding: 2px 30px;
+        }
+        .fit-link{
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <div class="container">
+        {% include 'myCalendar/nav.html' %}
+        <div class="stretch-2 mt-3">
+            <a href="{% url 'month' %}?month={{ m_prev }}" class="btn btn1 btn-outline-info">Previous Month</a>
+            <a href="{% url 'month' %}?month={{ m_next }}" class="btn btn2 btn-outline-info">Next Month</a>
+        </div>
+        <div class="pt-3">
+            {{ calendar }}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

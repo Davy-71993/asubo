@@ -1,0 +1,58 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        .table{
+            text-align: center;
+            table-layout: fixed;
+        }
+        .ents{
+            min-height: 40px;
+        }
+        .day{
+            width: 100px;
+            font-weight: bolder;
+            font-size: 18px;
+            padding: 0 10px;
+        }
+        .day-cell{
+            padding: 0;
+            overflow: hidden;
+        }
+        .ebtn{
+            text-align: left;
+            padding: 8px;
+            margin: 0;
+            background-color: rosybrown;
+            border: none;
+            clip-path: circle();
+        }
+        .month{
+            background-color: rgb(145, 163, 196);
+        }
+        .fit-nav{
+            width:fit-content; 
+            margin: 10px auto; 
+            background-color: khaki; 
+            padding: 2px 30px;
+        }
+        .fit-link{
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <div class="container-fluid">
+        {% include 'myCalendar/nav.html' %}
+        <div class="row pt-3">
+            {% for month in calendar %}
+                <div class="col-lg-4 col-md-6">
+                    {{ month }}
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
