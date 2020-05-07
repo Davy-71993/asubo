@@ -8,13 +8,11 @@
     }
     .one, .two, .three, .four{
       min-height: 60vh;
-      display: grid;
       position: relative;
       margin: 0;
       
     }
     .one{
-      min-height: 50px;
       background-image: linear-gradient(to right, rgb(19, 195, 226) , rgb(94, 205, 133));
       padding: 0;
     }
@@ -45,11 +43,14 @@
     .icon{
       display: grid;
       place-items: center;
-      padding: 30px;
+
       font-size: 36px;
-      margin: 10px auto;
-      clip-path: circle();
+      margin: auto;
+      /* clip-path: circle(); */
     }
+     .icon i>img{
+       max-height: 100px;
+     }
     .four{
         background-color: lightslategrey;
     }
@@ -107,31 +108,27 @@
       </p>
       <hr>
       <div class="row">
+
         <div class="col-sm-3">
           <div class="btn-icon">
             <button class="btn icon btn-outline-info btn-lg">
-              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
-              </svg>
+              <i><img src="{% static 'icons/students.png' %}" alt=""></i>
             </button>
             <p class="text-center">Students</p><hr>
             <div class="alert alert-info text-center ml-2 mr-2" role="alert">
               For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
             </div>
           </div>
-          
         </div>
   
         <div class="col-sm-3">
           <div class="btn-icon">
             <button class="btn icon btn-outline-info btn-lg">
-              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
-              </svg>
+              <i><img src="{% static 'icons/results.png' %}" alt=""></i>
             </button>
             <p class="text-center">Results</p><hr>
             <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+              The system that makes it easy to create students' reportcards for schools with many students on board<br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
             </div>
           </div>
         </div>
@@ -139,13 +136,11 @@
         <div class="col-sm-3">
           <div class="btn-icon">
             <button class="btn icon btn-outline-info btn-lg">
-              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
-              </svg>
+              <i><img src="{% static 'icons/teacher.png' %}" alt=""></i>
             </button>
             <p class="text-center">Teach</p><hr>
             <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+              Let your students never miss out anything that you have planned for the even when your not at school <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
             </div>
           </div>
         </div>
@@ -153,9 +148,7 @@
         <div class="col-sm-3">
           <div class="btn-icon">
             <button class="btn icon btn-outline-info btn-lg">
-              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
-              </svg>
+              <i><img src="{% static 'icons/calendar.png' %}" alt=""></i>
             </button>
             <p class="text-center">Calendar</p><hr>
             <div class="alert alert-info text-center ml-2 mr-2" role="alert">
@@ -167,9 +160,7 @@
         <div class="col-sm-3">
           <div class="btn-icon">
             <button class="btn icon btn-outline-info btn-lg">
-              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
-              </svg>
+              <i><img src="{% static 'icons/draft.png' %}" alt=""></i>
             </button>
             <p class="text-center">Draft</p><hr>
             <div class="alert alert-info text-center ml-2 mr-2" role="alert">
@@ -177,6 +168,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
     <hr>

@@ -11,7 +11,6 @@
     <link rel="icon" type="image/png" href="{% static 'icons/reading.png' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
     <style>
         body{
             min-height: 100vh;
@@ -94,6 +93,7 @@
                   <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
                   <li class="nav-item active"><a class="nav-link" href="{% url 'year' %}">Calender</a></li>
                   <li class="nav-item active"><a class="nav-link" href="">Events</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="">Width: <span id="width"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -109,8 +109,56 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
+    
+    <script>
+        window.onresize = function(){
+            respond()   
+            $('#width').html(get_width());
+        }
+
+        $(document).ready(function(){
+            respond()
+            $('#width').html(get_width())
+        })
+        
+        function get_width(){
+            return window.innerWidth;
+        }
+
+        function respond(){
+            if (get_width() <= 1200){
+                set_class('col-sm-3', 'col-sm-4');
+                if (get_width() <= 750){
+                    set_class('col-sm-4', 'col-sm-6')
+                }else{
+                    set_class('col-sm-6', 'col-sm-4')
+                }
+                
+            }else{
+                set_class( 'col-sm-4', 'col-sm-3');
+            }
+        }
+
+        function set_class(current_class_name, new_class_name){
+            targets = document.getElementsByClassName(current_class_name);
+        
+            for (let i = 0; i < targets.length; i++) {
+                const elm = targets[i];
+                // elm.className -= current_class_name;
+                elm.className = new_class_name; 
+                elm.style.transitionDuration = '.5s'
+                respond()  
+            }
+            // alert(targets.length)
+            // for(target in targets){
+            //     elm = targets[target]
+            //     elm.className -= current_class_name;
+            //     elm.className += ' '+new_class_name;
+            // }
+        }
+    </script>
     {% block javascript %}
+
     {% endblock javascript %}
 </body>
 </html>
