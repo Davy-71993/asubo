@@ -1,22 +1,208 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
 
-{% block content %}
+{% block style %}
+  <style>
+    .t-wra>h1, .t-wra>h2, .t-wra>h3, .t-wra>h4, .t-wra>h5, .t-wra>h6{
+      color: #eee;
+    }
+    .one, .two, .three, .four{
+      min-height: 60vh;
+      display: grid;
+      position: relative;
+      margin: 0;
+      
+    }
+    .one{
+      min-height: 50px;
+      background-image: linear-gradient(to right, rgb(19, 195, 226) , rgb(94, 205, 133));
+      padding: 0;
+    }
 
-<div class="jumbotron text-center">
+    .two{
+      padding-top: 20px;
+      /* border-radius: 0 0 0 30%; */
+      background-color: #fff;
+    }
+
+    .three{
+      background-color: lightseagreen;
+    }
+
+    .btn-icon{
+      min-height: 200px;
+      padding: 10px 0;
+      border-radius: 10px 10px 0 0;
+      background-image: linear-gradient(to bottom, rgb(19, 195, 226, .3) , transparent);
+    }
+
+    .btn-icon p{
+      font-size: 20px;
+      color: darkslategray;
+      font-weight: bolder;
+    }
+
+    .icon{
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      font-size: 36px;
+      margin: 10px auto;
+      clip-path: circle();
+    }
+    .four{
+        background-color: lightslategrey;
+    }
+    .t-wra{
+        width: fit-content;
+        margin: 0 auto;
+        padding-left: 2px;
+    }
+    .h-text{
+        display: grid;
+        place-items: center;
+        min-height: 40vh;
+        margin: auto;
+        padding-left: 5px;
+    }
+
+    .show-trace{
+        border: #000 1px solid;
+    }
+
+    .img{
+      width: 500px;
+      height: 250px;
+      margin: auto;
+    }
+  </style>
+{% endblock style %}
+
+{% block content %}
+  <section class="one">
+    <div class="container" style="margin:auto">
+      <div class="row">
+        <div class="col-md-6 h-text">
+          <div class="t-wra">
+            <h1>ASUBO,</h1>
+            <h1>Your Tech Patner....</h1><br>
+            <h4>Let the tech team make it real</h4>
+          </div>
+        </div>
+        <div class="col-md-6 h-text">
+          <img class="img-responsive img" src="{% static 'imgs/main_banner_image.png' %}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="container-fluid">
+      <h2 class="text-center text-primary">
+        Looking for a solution?
+      </h2>
+      <p class="text-center">
+        Here are systems that could really make your work, take a look <br>
+        <a href="" class="btn btn-outline-success mt-2">See all Apps and Solutions</a>
+      </p>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="btn-icon">
+            <button class="btn icon btn-outline-info btn-lg">
+              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <p class="text-center">Students</p><hr>
+            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+            </div>
+          </div>
+          
+        </div>
+  
+        <div class="col-sm-3">
+          <div class="btn-icon">
+            <button class="btn icon btn-outline-info btn-lg">
+              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <p class="text-center">Results</p><hr>
+            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="col-sm-3">
+          <div class="btn-icon">
+            <button class="btn icon btn-outline-info btn-lg">
+              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <p class="text-center">Teach</p><hr>
+            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-3">
+          <div class="btn-icon">
+            <button class="btn icon btn-outline-info btn-lg">
+              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <p class="text-center">Calendar</p><hr>
+            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="btn-icon">
+            <button class="btn icon btn-outline-info btn-lg">
+              <svg class="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <p class="text-center">Draft</p><hr>
+            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </section>
+
+  <section class="three">
+  </section>
+
+  <section class="four">
+    
+  </section>
+
+  <!-- <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="static/imgs/lang-logo.png">
     </a>
-    <h1>Getting Started with Python on Heroku</h1>
-    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <h1>ASUBO SYSTEMS DEVELOPMENT</h1>
+    <p>Equiped, Focuesd and Determined team of software engineers just waiting for your imagination to turn it into a real world problem solving system</p>
+    <a type="button" class="btn btn-lg btn-info" href="">Getting Started with Asubo</a>
+    <a type="button" class="btn btn-lg btn-primary" href="">Get us on GitHub</a>
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
+    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="#" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
   </div>
   <hr>
   <div class="row">
@@ -51,8 +237,8 @@
       </ul>
     </div>
   </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
+   <!-- <div class="alert alert-info text-center" role="alert">
     Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+  </div> -->
+<!-- </div> --> 
 {% endblock %}

@@ -13,58 +13,65 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
     <style>
-      body{
-        min-height: 100vh;
-      }
-      .nav-logo{
-          background-image:image("{% static 'icons/reading.png' %}");
-          padding: 10px;
-      }
-      .jumbotron {
-        background: #532f8c;
-        color: white;
-        padding-bottom: 80px;
-        border-radius: 0;
-      }
-      .jumbotron .btn-primary {
-          background: #845ac7;
-          border-color: #845ac7
-      }
-      .jumbotron .btn-primary:hover {
-          background: #7646c1
-      }
-      .jumbotron p {
-          color: #d9ccee;
-          max-width: 75%;
-          margin: 1em auto 2em
-      }
-      .navbar+.jumbotron {
-          margin-top: -20px
-      }
-      .jumbotron .lang-logo {
-          display: block;
-          background: #b01302;
-          border-radius: 50%;
-          overflow: hidden;
-          width: 100px;
-          height: 100px;
-          margin: auto;
-          border: 2px solid white
-      }
-      .jumbotron .lang-logo img {
-          max-width: 100%
-      }
+        body{
+            min-height: 100vh;
+        }
+        .nav-logo img{
+            max-height: 45px;
+        }
+        .navbar-brand{
+            padding: 0;
+            margin-bottom: -15px;
+        }
+        a.nav-link{
+            padding: 10px;
+            font-size: 20px;
+        }
+        .jumbotron {
+            background: #532f8c;
+            color: white;
+            padding-bottom: 80px;
+            border-radius: 0;
+        }
+        .jumbotron .btn-primary {
+            background: #845ac7;
+            border-color: #845ac7
+        }
+        .jumbotron .btn-primary:hover {
+            background: #7646c1
+        }
+        .jumbotron p {
+            color: #d9ccee;
+            max-width: 75%;
+            margin: 1em auto 2em
+        }
+        .navbar+.jumbotron {
+            margin-top: -20px
+        }
+        .jumbotron .lang-logo {
+            display: block;
+            background: #b01302;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border: 2px solid white
+        }
+        .jumbotron .lang-logo img {
+            max-width: 100%
+        }
 
-      .footer{
-        margin-top: 5px;
-        min-height: 100px;
-        text-align: center;
-        color: aliceblue;
-        padding: 20px 10px;
-      }
-      .base-container{
-        min-height: 80vh;
-      }
+        .footer{
+            margin-top: 5px;
+            min-height: 100px;
+            text-align: center;
+            color: aliceblue;
+            padding: 20px 10px;
+        }
+        .base-container{
+            min-height: 80vh;
+        }
     </style>
     {% block style %}
         <style>
@@ -78,7 +85,7 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand text-info" href="{% url 'index' %}"><h2 style="margin-top: 0; padding-top: 0;"><span class="nav-logo"></span> ASUBO</h2></a>
+            <a class="navbar-brand text-info" href="{% url 'index' %}"><h2><span class="nav-logo"><img src="{% static 'imgs/lang-logo.png' %}" alt=""></span>ASUBO</h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

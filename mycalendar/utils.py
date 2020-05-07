@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from calendar import HTMLCalendar
 from .models import Event
 
@@ -11,6 +11,13 @@ class Calendar(HTMLCalendar):
         super(Calendar, self).__init__()
 
     def formatday(self, day, events):
+        today = date.today()
+        dc = ''
+        if day != 0:
+            td =date(self.year, self.month, day)
+            if today == td:
+                dc = 'today'
+
         events_per_day = len(events.filter(fro_date__day=day))
         d = '<div class="ents">\n'
         
@@ -18,7 +25,7 @@ class Calendar(HTMLCalendar):
             d += f'<button class="ebtn">{events_per_day}</button></div>'
 
         if day != 0:
-            return f"<td class='day-cell'><a class='day' href='/calendar/day/?d={day}&m={self.month}&y={self.year}'>{day}</a> {d}</td>"
+            return f"<td class='day-cell {dc}'><a class='day' href='/calendar/day/?d={day}&m={self.month}&y={self.year}'>{day}</a> {d}</td>"
         return '<td></td>'
 
     def formatweek(self, theweek, events):
