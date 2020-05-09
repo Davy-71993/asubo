@@ -45,3 +45,34 @@ class Calendar(HTMLCalendar):
 
         return cal
 
+class Day():
+    def __init__(self, day=None, events=None):
+        self.day = day
+        self.events = events
+        super(Day, self).__init__()
+
+    def display(self):
+        if self.events != None and self.events.count():
+            html = '<table class="table table-responsive table-striped"><thead><th></th>'
+            hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+            
+            for hr in hours:
+                html += f'<th>{hr}:00</th>'
+
+            html += f'</thead><tbody>'
+
+            for event in self.events:
+                html += f'<tr><td>{event}</td>'
+                for hr in hours:
+                    now = datetime(self.day.year, self.day.month, self.day.day, hr ).hour
+                    fro = event.fro_time.hour
+                    to = event.to_time.hour
+
+                    if now >= fro and now <= to:
+                        html += f'<td class="bg-info"></td>'
+                    else:
+                        html += f'<td></td>'
+     
+            return html + f'</tr></tbody></table>'
+        else:
+            return f"<h2 class='text-center text-warning'>You don't have any events scheduled.</h2><div class='container'><a class='btn btn-outline-primary' href='#'>Create New Events</a></div>"

@@ -24,6 +24,9 @@
             padding-left: 0;
             overflow: hidden;
         }
+        .day-cell:hover{
+            background-color: #eee;
+        }
         .ents{
             min-height: 30px;
         }
@@ -65,13 +68,16 @@
 {% block content %}
     <div class="container">
         {% include 'myCalendar/nav.html' %}
-        <div class="stretch-2 mt-3">
-            <a href="{% url 'month' %}?month={{ m_prev }}" class="btn btn1 btn-outline-info">Previous Month</a>
-            <a href="{% url 'month' %}?month={{ m_next }}" class="btn btn2 btn-outline-info">Next Month</a>
+        <div class="col-md-8" style="margin: auto;">
+            <div class="stretch-2 mt-3">
+                <a href="{% url 'month' %}?month={{ m_prev }}" class="btn btn1 btn-outline-info">Previous Month</a>
+                <a href="{% url 'month' %}?month={{ m_next }}" class="btn btn2 btn-outline-info">Next Month</a>
+            </div>
+            <div class="pt-3">
+                {{ calendar }}
+                </table>
+            </div>
         </div>
-        <div class="pt-3">
-            {{ calendar }}
-            </table>
-        </div>
-    </div>
+    </div><hr>
+    
 {% endblock content %}

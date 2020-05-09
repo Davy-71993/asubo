@@ -112,11 +112,13 @@
     
     <script>
         window.onresize = function(){
+            set_col_lg()
             respond()   
             $('#width').html(get_width());
         }
 
         $(document).ready(function(){
+            set_col_lg()
             respond()
             $('#width').html(get_width())
         })
@@ -139,6 +141,14 @@
             }
         }
 
+        function set_col_lg(){
+            if(get_width() <= 1300){
+                col_lg_4('col-lg-4', 'col-lg-6')
+            }else{
+                col_lg_4('col-lg-6', 'col-lg-4')
+            }
+        }
+
         function set_class(current_class_name, new_class_name){
             targets = document.getElementsByClassName(current_class_name);
         
@@ -155,6 +165,15 @@
             //     elm.className -= current_class_name;
             //     elm.className += ' '+new_class_name;
             // }
+        }
+
+        function col_lg_4(current_class_name, new_class_name){
+            targets = document.getElementsByClassName(current_class_name);
+            for (let i = 0; i < targets.length; i++) {
+                const elm = targets[i];
+                elm.className = new_class_name;
+                elm.style.transitionDuration = '.5s';
+            }
         }
     </script>
     {% block javascript %}

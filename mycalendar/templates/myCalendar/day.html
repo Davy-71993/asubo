@@ -12,13 +12,31 @@
             padding: 5px 10px;
             font-size: 18px;
         }
+        .events{
+            overflow: auto;
+            margin: auto;
+        }
+        .event-cell{
+            background-color: rgb(86, 52, 117, .6);
+        }
+
+        .table{
+            margin: 10px auto;
+            width: fit-content;
+        }
+        
     </style>
 {% endblock style %}
 
 {% block content %}
 
-    <div class="container">
+    <div class="events-container" style="width: 100%;">
         {% include 'myCalendar/nav.html' %}
         <h1 class="text-center">{{ today }}</h1>
+        <div class="events">
+           {{ html }}
+        </div><hr>
+        
+
     </div>
 {% endblock content %}
