@@ -3,6 +3,8 @@
 
 {% block style %}
   <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
     .t-wra>h1, .t-wra>h2, .t-wra>h3, .t-wra>h4, .t-wra>h5, .t-wra>h6{
       color: #eee;
     }
@@ -13,8 +15,12 @@
       
     }
     .one{
-      min-height: 40vh;
-      background-image: linear-gradient(to right, rgb(19, 195, 226) , rgb(94, 205, 133));
+      min-height: 95vh;
+      background-image: url('static/imgs/naturebac1.jpeg');
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
       padding: 0;
     }
 
@@ -55,26 +61,51 @@
     .four{
         background-color: lightslategrey;
     }
-    .t-wra{
-        width: fit-content;
-        margin: 0 auto;
-        padding-left: 2px;
-    }
-    .h-text{
-        display: grid;
-        place-items: center;
-        min-height: 40vh;
-        margin: auto;
-        padding-left: 5px;
-    }
-
-    .show-trace{
-        border: #000 1px solid;
-    }
-
     .img{
       width: 500px;
       height: 250px;
+      margin: auto;
+    }
+    .slanted{
+      display: grid;
+      place-items: center;
+      height: 87vh;
+      background-color: rgb(241, 237, 237, .3);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+      color:  #ffffff;
+    }
+    .grid-center{
+      display: grid;
+      place-items: center;
+      border: rgb(28, 41, 70, .7) 8px solid;
+      height: 50vh;
+      width: 90vmin;
+      margin: 10vmin auto;
+      border-radius: 15px 15px 0 0;
+      background-color: rgb(119, 109, 184, .5);
+    }
+    .txt{
+      font-family: 'Playfair Display', serif;
+      font-weight: bolder;
+    }
+    .btn-start{
+      border: cyan 4px solid;
+      color: cyan;
+      font-size: large;
+      font-weight: bolder;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: transparent;
+      text-align: center;
+      min-width: 20vw;
+    }
+    .btn-start:hover{
+      background-color: cyan;
+      color: rgb(150, 143, 143);
+      transition-duration: 1s;
+      transition-property: background-color, color;
+    }
+    .col-sm-3{
       margin: auto;
     }
   </style>
@@ -82,24 +113,19 @@
 
 {% block content %}
   <section class="one">
-    <!-- <div class="container" style="margin:auto">
-      <div class="row">
-        <div class="col-md-6 h-text">
-          <div class="t-wra">
-            <h1>ASUBO,</h1>
-            <h1>Your Tech Patner....</h1><br>
-            <h4>Let the tech team make it real</h4>
-          </div>
-        </div>
-        <div class="col-md-6 h-text">
-          <img class="img-responsive img" src="{% static 'imgs/main_banner_image.png' %}">
+    <div class="slanted">
+      <div>
+        <h1 class="text-center txt">Solutions Center</h1>
+        <h4 class="txt2 text-center" style="padding: 10px;">Let's get that solution for company or bussinesss</h4>
+        <div class="grid-center">
+          <button class="btn-start">Get started</button>
         </div>
       </div>
-    </div> -->
+    </div>
   </section>
 
   <section class="two">
-    <div class="container-fluid">
+    <div class="container">
       <h2 class="text-center text-primary">
         Looking for a solution?
       </h2>
