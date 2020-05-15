@@ -5,6 +5,9 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Channels
+ASGI_APPLICATION = 'app.routing.application'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -21,6 +24,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,6 +36,7 @@ INSTALLED_APPS = [
     'mycalendar.apps.MycalendarConfig',
     'gaming.apps.GamingConfig',
     'reportcards.apps.ReportcardsConfig',
+    'chat',
 ]
 
 MIDDLEWARE = [
