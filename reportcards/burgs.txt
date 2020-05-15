@@ -1,2 +1,0 @@
-on adding the new subject, scores should be generated for all students offering this subject this should be if the subject is compulsary
-on adding a student scores should be auto generated for all the subjects the student offers
