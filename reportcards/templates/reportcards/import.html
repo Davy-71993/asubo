@@ -1,0 +1,61 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        
+    </style>
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="wrapper mt-5">
+            <div class="ml-5">
+                <h4 class="text-warning ml-5"><b>NOTE:</b></h4>
+                <div class="jumbotron ml-5 mr-5">
+                    <p class="ml-5">1. Your file <b>MUST</b> be an excel file ie: it should be a ".xlsx" or ".xls" file</p>
+                    <p class="ml-5">2. The <b>KEY</b> fields are: "sir_name", "given_name", "sex", "class", "stream"</p>
+                    <p class="ml-5">3. Your file <b>MUST</b> have all the five key columns or compulsary fields named as exactly as indicated here.</p>
+                </div><hr>
+                <form action="" method="POST" id="import_form" enctype="multipart/form-data" class="text-center">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="text-center">
+                            <div class="form-group">
+                                <label for="std_file" class="text-primary">Choose your <b class="text-danger">EXCEL</b> file</label><br>
+                                <input type="file" style="width: 300px; margin: auto;" name="std_file" id="std_file" required class="form-control">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-outline-success">Import Students</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        
+    </script>
+{% endblock javascript %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

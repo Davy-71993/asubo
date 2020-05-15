@@ -2,8 +2,7 @@
 import json
 import datetime
 from channels.generic.websocket import WebsocketConsumer
-from .models import Score, MarkList
-from students.models import Student, Subject
+from .models import Score, MarkList, Student, Subject
 
 class ScoreConsumer(WebsocketConsumer):
     def connect(self):

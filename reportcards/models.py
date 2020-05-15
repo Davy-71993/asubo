@@ -62,8 +62,6 @@ class Student(models.Model):
         else:
             return Subject.objects.filter(olevel = True)
 
-
-
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     abbr = models.CharField(max_length=6)
@@ -96,7 +94,6 @@ class Paper(models.Model):
 
     def __str__(self):
         return f'{self.subject} {self.name}'
-
 
 class MarkList(models.Model):
     year = models.IntegerField()
@@ -187,6 +184,7 @@ class Result(models.Model):
     def scores_by_subject(self, subject):
         scores = Score.objects.get(marklist = self.marklist, subject = subject, student = self.student)
         return scores
+   
     
 
 

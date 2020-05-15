@@ -1,0 +1,77 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="pt-5 pb-5 container">
+        <div class="wrapper">
+            <legend class="text-info text-center">Student Registration Form</legend>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="id_sir_name">{{ form.sir_name.label }}:</label>
+                                {{ form.sir_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_given_name">{{ form.given_name.label }}:</label>
+                                {{ form.given_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_other_names">{{ form.other_names.label }}:</label>
+                                {{ form.other_names }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_house">{{ form.house.label }}:</label>
+                                {{ form.house }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_passport_photo">{{ form.passport_photo.label }}:</label>
+                                {{ form.passport_photo }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="id_sex">{{ form.sex.label }}:</label>
+                                {{ form.sex }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_klass">Class:</label>
+                                {{ form.klass }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_stream">{{ form.stream.label }}:</label>
+                                {{ form.stream }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_subjects">{{ form.subjects.label }}:</label>
+                                {{ form.subjects }}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group" style="margin: auto;">
+                    <button type="submit" class="btn btn-outline-success">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+{% block javascript %}
+    <script>
+
+        setName('input');
+        setName('select')
+        
+        function setName(elem) {
+            arr = document.getElementsByTagName(elem);
+            for (let i = 0; i < arr.length; i++) {
+                const element = arr[i];
+                if(element.type !== 'submit'){
+                    element.className = 'form-control';
+                }
+            }
+        }
+    </script>
+{% endblock javascript %}

@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% block style %}
+<style>
+</style>
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <h5 class="text-center text-info">students In {{ hs }}</h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Student Names</th>
+                    <th>Sex</th>
+                    <th>Stream</th>
+                    <th>House</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                    <tr>
+                        <td><a href="{% url 'student' s.id %}">{{s.full_names}}</a></td>
+                        <td>{{s.sex}}</td>
+                        <td><a href="{% url 'students_by_class' s.klass %}">{{s.klass}}</a></td>
+                        <td><a href="{% url 'students_by_stream' s.klass s.stream %}">{{s.stream}}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

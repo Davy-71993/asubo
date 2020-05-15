@@ -1,0 +1,94 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+    <div class="container pt-5 pb-5">
+        <div class="wrapper col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center text-info">{{ student.full_names }}'s Basic Data</h2>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_sir_name">{{ form.sir_name.label }}:</label>
+                                        {{ form.sir_name }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_given_name">{{ form.given_name.label }}:</label>
+                                        {{ form.given_name }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_other_names">{{ form.other_names.label }}:</label>
+                                        {{ form.other_names }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_house">{{ form.house.label }}:</label>
+                                        {{ form.house }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_passport_photo">{{ form.passport_photo.label }}:</label>
+                                        {{ form.passport_photo }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_sex">{{ form.sex.label }}:</label>
+                                        {{ form.sex }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_klass">Class:</label>
+                                        {{ form.klass }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_stream">{{ form.stream.label }}:</label>
+                                        {{ form.stream }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_subjects">{{ form.subjects.label }}:</label>
+                                        {{ form.subjects }}
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset><hr>
+                        <div class="form-group">
+                            <div class="h-gird-3">
+                                <a href="{% url 'students' %}" class="btn btn-outline-info">
+                                    Cancel
+                                </a>
+                                <button type="submit" class="btn btn-outline-success">
+                                    Save Changes
+                                </button>
+                                <a href="{% url 'delete_student' student.id %}" class="btn btn-outline-danger">
+                                    Delete Student
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+<!-- the script to add a class to inputs and or selects -->
+    <script>
+        setName('input');
+        setName('select')
+        
+        function setName(elem) {
+            arr = document.getElementsByTagName(elem);
+            for (let i = 0; i < arr.length; i++) {
+                const element = arr[i];
+                // if the input type is text or password
+                if(element.type !== 'checkbox'){
+                    element.className = 'form-control';
+                }
+            }
+        }
+    </script>
+{% endblock javascript %}
