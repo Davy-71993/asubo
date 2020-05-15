@@ -1,0 +1,91 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        .table-container{
+            padding: 5px 10px;
+            width: 400px;
+            margin: 10px auto;
+        }
+        .score-td{
+            padding: 0;
+            width: fit-content;
+            height: fit-content;
+        }
+        .score{
+            margin: 0;
+            width: 50px;
+            border: none;
+            -moz-appearance: textfield;
+        }
+        
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <h2 class="text-center text-info">{{ marklist }}</h2>
+    <h2 class="text-center text-info">{{ subject }} Marks</h2>
+    <hr>
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>Student Names</th>
+                    <th>M1</th>
+                    <th>M2</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in scores %}
+                    <tr>
+                        <td>{{ score.score.student.full_names }}</td>
+                        <td class="score-td">
+                            <input type="number" value="{{ score.score.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }})" class="score" autofocus> 
+                        </td>
+                        <td class="score-td">
+                            <input type="number" value="{{ score.score.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }})" class="score">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% for score in scores %}
+            {{ score.score }}
+            <br>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const marklist = JSON.parse({{ marklist.id }});
+        const subject = JSON.parse({{ subject.id }});
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/reportcards/marksbysubject/'
+            + marklist
+            + '/'
+            + subject
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data.message)
+        };
+
+        function save(elm, name, student){
+            chatSocket.send(JSON.stringify({
+                'value': elm.value,
+                'mkl': marklist,
+                'std': student,
+                'name': name,
+                'sub': subject
+            }));
+        };
+    </script>
+{% endblock javascript %}

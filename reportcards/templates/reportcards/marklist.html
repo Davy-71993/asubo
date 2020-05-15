@@ -1,0 +1,46 @@
+{% extends 'reportcards/creat_marklist.html' %}
+{% block form %}
+    <h4 class="text-center text-info">{{ marklist }}</h4><hr>
+    <form action="" method="POST" id="m_form" style="max-width: 400px; margin: auto;">
+        {% csrf_token %}
+        <fieldset>
+            <div class="form-group">
+                <label for="student"><h6 class="text-center text-info">Select a student to enter or view marks by student</h6></label>
+                <select name="student" id="student" class="form-control">
+                    <option value=""></option>
+                    {% for student in students %}
+                        <option value="{{ student.id }}">{{ student.full_names }}</option>
+                    {% endfor %}
+                </select>   
+            </div>
+            
+            <hr>
+            <h1 class="text-center text-info">OR</h1>
+            <hr>
+
+            <div class="form-group">
+                <label for="subject"><h6 class="text-center text-info">Select a subject to enter or view marks by subject</h6></label>
+            <select name="subject" id="subject" class="form-control">
+                    <option value=""></option>
+                    {% for subject in subjects %}
+                        <option value="{{ subject.id }}">{{ subject.name }}</option>
+                    {% endfor %}
+                </select>   
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <a href="{% url 'marks_by_stream' marklist.id %}" class="btn btn-outline-warning">Continue to full marklist</a>
+            <a href="{% url 'creat_marklist' %}" class="btn btn-outline-danger">Cancel</a>
+        </div>
+    </form>
+{% endblock form %}
+
+{% block javascript %}
+    <script>
+        $('#subject').on('change', () => { $('#m_form').submit() });
+        $('#student').on('change', () => { $('#m_form').submit() });
+    </script>
+{% endblock javascript %}
+
+
+

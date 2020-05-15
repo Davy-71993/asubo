@@ -1,0 +1,106 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        .table-container{
+            padding: 5px 10px;
+            width: 400px;
+            margin: 10px auto;
+        }
+        .score-td{
+            padding: 0;
+            width: fit-content;
+            height: fit-content;
+        }
+        table th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: #fff;
+        }
+        .score{
+            margin: 0;
+            width: 50px;
+            border: none;
+            -moz-appearance: textfield;
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <h2 class="text-center text-info">{{ marklist }}</h2>
+    <h2 class="text-center text-info">{{ student.full_names }}'s Marks</h2>
+    <hr>
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>Subject</th>
+                    <th>M1</th>
+                    <th>M2</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in scores %}
+                    <tr>
+                        <td>{{ score.subject.name }}</td>
+                        <td class="score-td">
+                            <input type="number" value="{{ score.value }}" id="" class="score" onchange="javascript:save(this, 'value', {{ score.subject.id }})">
+                        </td>
+                        <td class="score-td"> 
+                            <input type="number" value="{{ score.value1 }}" id="" class="score" onchange="javascript:save(this, 'value1', {{ score.subject.id }})">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% for score in scores %}
+            {{ score.ENG.value }}
+            <br>
+
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const marklist = JSON.parse({{ marklist.id }});
+        const student = JSON.parse({{ student.id }});
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/reportcards/marksbystudent/'
+            + marklist
+            + '/'
+            + student
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data.message)
+        };
+
+        function save(elm, name, subject){
+            chatSocket.send(JSON.stringify({
+                'value': elm.value,
+                'mkl': marklist,
+                'std': student,
+                'name': name,
+                'sub': subject
+            }));
+        };
+
+    </script>
+{% endblock javascript %}

@@ -1,0 +1,101 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"]{
+            width: 35px;
+            height: 35px;
+            border: none;
+            text-align: center;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <h2 class="text-center text-info">{{ year }} {{ term }} {{ str_class }} Full Mark List</h2><hr>
+    <table class="table table-bordered">
+        <thead>
+            <th>Student Names</th>
+            <th colspan="2">ENG</th>
+            <th colspan="2">HIST</th>
+            <th colspan="2">MTC</th>
+            <th colspan="2">GEOG</th>
+            <th colspan="2">COMM</th>
+            <th colspan="2">BIO</th>
+            <th colspan="2">PHY</th>
+            <th colspan="2">CHEM</th>
+            <th colspan="2">CRE</th>
+            <th colspan="2">LIT</th>
+            <th colspan="2">ART</th>
+            <th colspan="2">KISS</th>
+        </thead>
+        
+        <tbody>
+            {% for score in scores %}
+                <tr class="s-row" id="{{ score.score.student.id }}">
+                    <td>{{ score.student.full_names }}</td>
+                    <td><input type="number" value="{% if score.ENG.value %}{{ score.ENG.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.ENG.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.ENG.value1 %}{{ score.ENG.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.ENG.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.HIST.value %}{{ score.HIST.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.HIST.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.HIST.value1 %}{{ score.HIST.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.HIST.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.MTC.value %}{{ score.MTC.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.MTC.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.MTC.value1 %}{{ score.MTC.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.MTC.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.GEOG.value %}{{ score.GEOG.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.GEOG.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.GEOG.value1 %}{{ score.GEOG.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.GEOG.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.COMM.value %}{{ score.COMM.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.COMM.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.COMM.value1 %}{{ score.COMM.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.COMM.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.BIO.value %}{{ score.BIO.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.BIO.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.BIO.value1 %}{{ score.BIO.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.BIO.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.PHY.value %}{{ score.PHY.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.PHY.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.PHY.value1%}{{ score.PHY.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.PHY.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.CHEM.value %}{{ score.CHEM.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.CHEM.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.CHEM.value1 %}{{ score.CHEM.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.CHEM.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.CRE.value %}{{ score.CRE.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.CRE.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.CRE.value1 %}{{ score.CRE.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.CRE.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.LIT.value %}{{ score.LIT.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.LIT.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.LIT.value1 %}{{ score.LIT.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.LIT.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.ART.value%}{{ score.ART.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.ART.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.ART.value1 %}{{ score.ART.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.ART.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.KISS.value %}{{ score.KISS.value }}{% endif %}" onchange="javascript:save(this, 'value', {{ score.student.id }}, {{ score.KISS.subject.id }})"></td>
+                    <td><input type="number" value="{% if score.KISS.value1 %}{{ score.KISS.value1 }}{% endif %}" onchange="javascript:save(this, 'value1', {{ score.student.id }}, {{ score.KISS.subject.id }})"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        const int_class = JSON.parse({{ int_class }});
+        term = "{{ term }}";
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/reportcards/classmarklist/'
+            + int_class
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data.message)
+        };
+
+        function save(elm, name, student, subject){
+            chatSocket.send(JSON.stringify({
+                'value': elm.value,
+                'int_class': int_class,
+                'std': student,
+                'name': name,
+                'sub': subject,
+                'term': term,
+            }));
+        };
+    </script>
+{% endblock %}

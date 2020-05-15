@@ -3,7 +3,6 @@
 
 {% block style %}
   <style>
-    
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
     .t-wra>h1, .t-wra>h2, .t-wra>h3, .t-wra>h4, .t-wra>h5, .t-wra>h6{
       color: #eee;
@@ -45,6 +44,17 @@
       font-size: 20px;
       color: darkslategray;
       font-weight: bolder;
+    }
+
+    @keyframes slidein{
+      from{
+        visibility: hidden;
+        margin-top: -50px;
+
+      }
+      to{
+        visibility: visible;margin: 5px;
+      }
     }
 
     .icon{
@@ -106,7 +116,26 @@
       transition-property: background-color, color;
     }
     .col-sm-3{
-      margin: auto;
+      margin: 0 auto;
+    }
+    .a-pinter::after{
+      left: 50%;
+      transform: skew(0, 50deg);
+    }
+    .a-pinter::before{
+      right: 50%;
+      transform: skew(0, -50deg);
+    }
+
+    .a-pinter::after,
+    .a-pinter::before{
+      position:absolute;
+      content: '';
+      height: 10px;
+      width: 10px;
+      background-color: red;
+      top: -5px;
+      z-index: 100;
     }
   </style>
 {% endblock style %}
@@ -125,77 +154,32 @@
   </section>
 
   <section class="two">
-    <div class="container">
+    <div class="container-fluid">
       <h2 class="text-center text-primary">
         Looking for a solution?
       </h2>
       <p class="text-center">
-        Here are systems that could really make your work, take a look <br>
+        Here are systems that could really make your work easy, take a look <br>
         <a href="" class="btn btn-outline-success mt-2">See all Apps and Solutions</a>
       </p>
       <hr>
+
       <div class="row">
-
-        <div class="col-sm-3">
-          <div class="btn-icon">
-            <button class="btn icon btn-outline-info btn-lg">
-              <i><img src="{% static 'icons/students.png' %}" alt=""></i>
-            </button>
-            <p class="text-center">Students</p><hr>
-            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
-            </div>
+        {% for solution in solutions %}
+          <div class="col-sm-3">
+            <a href="{% if solution.done %} {% url solution.name %} {% endif %}">
+              <div class="btn-icon">
+                <button class="btn icon btn-outline-info btn-lg">
+                  <i><img src="static/icons/{{ solution.name }}.png" alt=""></i>
+                </button>
+                <p class="text-center" style="text-transform: uppercase;">{{ solution.name }}</p><hr>
+                <div class="alert alert-info text-center ml-2 mr-2" role="alert">
+                  {{ solution.description }}<br>
+                </div>
+              </div>
+            </a>
           </div>
-        </div>
-  
-        <div class="col-sm-3">
-          <div class="btn-icon">
-            <button class="btn icon btn-outline-info btn-lg">
-              <i><img src="{% static 'icons/results.png' %}" alt=""></i>
-            </button>
-            <p class="text-center">Results</p><hr>
-            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              The system that makes it easy to create students' reportcards for schools with many students on board<br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
-            </div>
-          </div>
-        </div>
- 
-        <div class="col-sm-3">
-          <div class="btn-icon">
-            <button class="btn icon btn-outline-info btn-lg">
-              <i><img src="{% static 'icons/teacher.png' %}" alt=""></i>
-            </button>
-            <p class="text-center">Teach</p><hr>
-            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              Let your students never miss out anything that you have planned for the even when your not at school <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-3">
-          <div class="btn-icon">
-            <button class="btn icon btn-outline-info btn-lg">
-              <i><img src="{% static 'icons/calendar.png' %}" alt=""></i>
-            </button>
-            <p class="text-center">Calendar</p><hr>
-            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3">
-          <div class="btn-icon">
-            <button class="btn icon btn-outline-info btn-lg">
-              <i><img src="{% static 'icons/draft.png' %}" alt=""></i>
-            </button>
-            <p class="text-center">Draft</p><hr>
-            <div class="alert alert-info text-center ml-2 mr-2" role="alert">
-              For saving and retrieving students date that may be rquiered at school or institution <br> <a class="btn btn-outline-primary mt-2" href="#"> LEARN MORE HERE </a>
-            </div>
-          </div>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
     <hr>

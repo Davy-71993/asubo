@@ -1,0 +1,70 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+    <div class="container pt-5 pb-5">
+        <div class="wrapper">
+            <h2 class="text-center text-info">
+                Pick Or Create A Mark List To Work On
+            </h2><hr>
+            <h5 class="text-center text-info" style="margin: 10px 200px;">
+                Please select the mark list that you want to work on or select class, stream and term then click <b>'creat'</b> to create a new mark list.
+            </h5>
+            <p class="text-warning text-center">
+                <b>NOTE:</b>
+                You may leave the stream empty if you intend to create mark lists for all the Class Streams
+            </p><hr>
+            <div class="h-gird-2">
+                <div class="sider text-right">
+                    <h6 class="text-center text-info">Pick A Mark List</h6>
+                    {% for marklist in marklists %}
+                        <a href="{% url 'marklist' marklist.id  %}"><h6 class="text-success card-header">{{ marklist }}</h6></a>
+                    {% endfor %}
+                </div>
+                
+                <div class="sm-form">
+                    {% block form %}
+                    <h6 class="text-center text-info">Add A New Mark List</h6>
+                    <h6 class="text-center text-danger">{{ massage }}</h6>
+                    <form action="" method="POST" style="max-width: 400px; margin: auto;">
+                        {% csrf_token %}
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="">Class:</label>
+                                <select name="class" id="klass" class="form-control">
+                                    <option value="S.1">S.1</option>
+                                    <option value="S.2">S.2</option>
+                                    <option value="S.3">S.3</option>
+                                    <option value="S.4">S.4</option>
+                                    <option value="S.5">S.5</option>
+                                    <option value="S.6">S.6</option>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label for="stream">Stream:</label>
+                                <select name="stream" id="stream" class="form-control">
+                                    <option value=""></option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="S">S</option>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label for="term">Term:</label>
+                                <select name="term" id="term" class="form-control">
+                                    <option value="TERM ONE">TERM ONE</option>
+                                    <option value="TERM TWO">TERM TWO</option>
+                                    <option value="TERM THREE">TERM THREE</option>
+                                </select>   
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-success form-control">Create</button>
+                        </div>
+                    </form>
+                    {% endblock form %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock content %}

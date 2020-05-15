@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'mainapp.apps.MainappConfig',
     'mycalendar.apps.MycalendarConfig',
     'gaming.apps.GamingConfig',
+    'reportcards.apps.ReportcardsConfig',
 ]
 
 MIDDLEWARE = [

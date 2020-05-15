@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('mainapp.urls')),
     path('calendar/', include('mycalendar.urls')),
     path('gaming/', include('gaming.urls')),
+    path('studentresults/', include('reportcards.urls'))
 ]

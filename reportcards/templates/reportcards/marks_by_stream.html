@@ -1,0 +1,98 @@
+{% extends 'mainapp/base.html' %}
+
+{% block style %}
+    <style>
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"]{
+            width: 35px;
+            height: 35px;
+            border: none;
+            text-align: center;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <h2 class="text-center text-info">{{ marklist }}</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <th>Student Names</th>
+            <th colspan="2">ENG</th>
+            <th colspan="2">HIST</th>
+            <th colspan="2">MTC</th>
+            <th colspan="2">GEOG</th>
+            <th colspan="2">COMM</th>
+            <th colspan="2">BIO</th>
+            <th colspan="2">PHY</th>
+            <th colspan="2">CHEM</th>
+            <th colspan="2">CRE</th>
+            <th colspan="2">LIT</th>
+            <th colspan="2">ART</th>
+            <th colspan="2">KISS</th>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+                <tr class="s-row" id="{{ score.score.student.id }}">
+                    <td>{{ score.score.student.full_names }}</td>
+                    <td><input type="number" value="{{ score.score.ENG.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.ENG.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.ENG.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.ENG.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.HIST.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.HIST.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.HIST.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.HIST.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.MTC.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.MTC.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.MTC.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.MTC.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.GEOG.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.GEOG.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.GEOG.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.GEOG.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.COMM.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.COMM.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.COMM.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.COMM.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.BIO.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.BIO.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.BIO.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.BIO.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.PHY.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.PHY.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.PHY.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.PHY.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.CHEM.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.CHEM.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.CHEM.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.CHEM.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.CRE.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.CRE.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.CRE.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.CRE.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.LIT.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.LIT.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.LIT.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.LIT.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.ART.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.ART.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.ART.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.ART.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.KISS.value }}" onchange="javascript:save(this, 'value', {{ score.score.student.id }}, {{ score.score.KISS.subject.id }})"></td>
+                    <td><input type="number" value="{{ score.score.KISS.value1 }}" onchange="javascript:save(this, 'value1', {{ score.score.student.id }}, {{ score.score.KISS.subject.id }})"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const marklist = JSON.parse({{ marklist.id }});
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/reportcards/marklistbystream/'
+            + marklist
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data.message)
+        };
+
+        function save(elm, name, student, subject){
+            chatSocket.send(JSON.stringify({
+                'value': elm.value,
+                'mkl': marklist,
+                'std': student,
+                'name': name,
+                'sub': subject
+            }));
+        };
+    </script>
+{% endblock %}

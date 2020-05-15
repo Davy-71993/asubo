@@ -1,0 +1,43 @@
+draft{
+    height: 70vh;
+    grid-gap: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.draft-row{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 8.75vh;
+}
+.draft-gap{
+    border: 1px solid #ccc;
+}
+.host{
+    background-color: #ccc;
+}
+
+.peke{
+    height: 8.75vh;
+    clip-path: circle();
+    position: relative;
+}
+
+div[player='pa']{
+    background-color: rgb(46, 6, 83);
+}
+
+div[player='pb']{
+    background-color: burlywood;
+}
+.hovered{
+    border: cadetblue 2px dashed;
+}
+
+.invicible{
+    display: none;
+}
+.controls{
+    width: fit-content;
+    margin: auto;
+}

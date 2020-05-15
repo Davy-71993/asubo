@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+{% block style %}
+    <style>
+        .wrapper-sm{
+            width: fit-content;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+    </style>
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <h3 class="text-warning text-center">
+            Please provide the options for your marklist
+        </h3>
+        <h4 class="text-info text-center">
+            {{ marklist }}
+        </h4><hr>
+        <div class="wrapper-sm">
+            <legend class="text-info text-center">OPTIONS</legend><hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6" style="border-right: #eee 1px solid;">
+                            <div class="form-group">
+                                <label for="exams">Number of Exams:</label>
+                                <input type="number" required name="exams" id="exams" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="papers">Include Papers?</label>
+                                <input type="checkbox" name="papers" id="papers" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit"  id="submit" class="form-control btn btn-outline-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
