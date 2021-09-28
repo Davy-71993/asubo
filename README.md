@@ -19,3 +19,4 @@ $ pip install -r requirements.txt
 
 ## Make migrations
 $ python manage.py migrate
+```sh
